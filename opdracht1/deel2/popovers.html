@@ -9,69 +9,99 @@
   <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
   <!-- Import bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="./css/prism.css" rel="stylesheet" />
 </head>
 
 <body class="d-flex flex-column h-100">
-<header>
-  <nav class="navbar navbar-expand-md fixed-top" style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="./index.html">
-        <img src="./assets/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-        Bootstrap-uitleg
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Uitlegpagina's
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="./navbar.html">Menubalk</a></li>
-              <li><a class="dropdown-item" href="./carrousel.html">Carrousel</a></li>
-              <li><a class="dropdown-item" href="./buttons.html">Buttons</a></li>
-              <li><a class="dropdown-item active" href="#">Pop-overs</a></li>
-              <li><a class="dropdown-item" href="./modals.html">Modals</a></li>
-              <li><a class="dropdown-item" href="./validation.html">Validatie</a></li>
-              <li><a class="dropdown-item" href="./codesnippets.html">Code snippets</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Uitgeschakelde menu-optie</a>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><button type="button" class="btn btn-primary">Login</button></a></li>
-        </ul>
+  <header>
+    <nav class="navbar navbar-expand-md fixed-top" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./assets/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+          Bootstrap-uitleg
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Uitlegpagina's
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="./navbar.html">Menubalk</a></li>
+                <li><a class="dropdown-item" href="./carrousel.html">Carrousel</a></li>
+                <li><a class="dropdown-item" href="./buttons.html">Buttons</a></li>
+                <li><a class="dropdown-item active" href="#">Pop-overs</a></li>
+                <li><a class="dropdown-item" href="./modals.html">Modals</a></li>
+                <li><a class="dropdown-item" href="./validation.html">Validatie</a></li>
+                <li><a class="dropdown-item" href="./codesnippets.html">Code snippets</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Uitgeschakelde menu-optie</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><button type="button" class="btn btn-primary">Login</button></a></li>
+          </ul>
+        </div>
       </div>
+    </nav>
+  </header>
+
+  <main class="flex-shrink-0 mt-4">
+    <div class="container">
+      <h1 class="mt-5">Pop-overs</h1>
+      <p class="lead">Een pop-over lijkt op een <a href="https://getbootstrap.com/docs/5.0/components/tooltips/">tooltip</a>; het is een pop-up die verschijnt wanneer de gebruiker op een element klikt. Het verschil is dat de popover veel meer inhoud kan bevatten dan een tooltip.</p>
+      <p class="lead">Wil je trouwens een voorbeeld zien van een tooltip? Houd je muis dan eens boven <u><b data-bs-toggle="tooltip" data-bs-placement="top" title="Ik ben een tooltip!">dit</b></u> woord.</p>
+      <p class="lead">Over tot de orde van de dag, deze pagina gaat over pop-overs...</p>
     </div>
-  </nav>
-</header>
+    <div class="container mt-4">
+      <h5>Voorbeelden van pop-overs</h5>
+      <p>Hieronder staat een voorbeeld van hoe een pop-over eruit zou kunnen zien.</p>
+      <button type="button" class="btn btn-primary" data-bs-toggle="popover" title="Dit is een pop-over" data-bs-content="Zoals je ziet kan je hier veel meer tekst in kwijt dan in een tooltip! Als je weer op de knop klikt, verdwijn ik.">Klik op mij</button>
+    </div>
+    <div class="container mt-4">
+      <h5>Toevoegen van pop-overs</h5>
+      <p>Het toevoegen van een pop-over bestaat uit twee stappen. Stap één: toevoegen van een script. Voeg onderaan de body van je .html-webpagina een <code>&lt;script&gt;</code>-blok toe en zet daarin de volgende code:</code></p>
+      <pre>
+        <code class="language-javascript">
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+})</code>
+      </pre>
+      <p>Stap twee: een pop-over toevoegen aan een element. Je kan een pop-over toevoegen aan veel soorten elementen, maar in dit voorbeeld voegen we een pop-over toe aan een knop. Onderstaande code is de code voor de pop-over die is verbonden aan de blauwe knop op deze pagina.</p>
+      <pre>
+        <code class="language-html">
+&lt;button type="button" class="btn btn-primary" data-bs-toggle="popover" title="Dit is een pop-over" data-bs-content="Zoals je ziet kan je hier veel meer tekst in kwijt dan in een tooltip! Als je weer op de knop klikt, verdwijn ik."&gt;Klik op mij&lt;/button&gt;</code>
+      </pre>
+    </div>
+  </main>
 
-<main class="flex-shrink-0 mt-4">
-  <div class="container">
-    <h1 class="mt-5">Paginatitel</h1>
-    <p class="lead">Inleiding</p>
-  </div>
-</main>
+  <footer class="fixed-bottom mt-auto bg-dark">
+    <div class="container">
+      <p class="text-center text-white mt-3">September 2024 - Student 353268</p>
+    </div>
+  </footer>
 
-<div class="d-flex justify-content-center">
-
-</div>
-
-<footer class="fixed-bottom mt-auto bg-dark">
-  <div class="container">
-    <p class="text-center text-white mt-3">September 2024 - Student 353268</p>
-  </div>
-</footer>
-
-<!-- Import Bootstrap JS bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+  <!-- Import Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+  <script src="scripts/prism.js"></script>
 </body>
 </html>
