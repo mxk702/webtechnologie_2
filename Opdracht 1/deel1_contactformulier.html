@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Setting page title -->
+        <title>Deel 1 - Contactformulier</title>
+        <!-- Import bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container mt-5 w-50">
+            <h2>Vul onderstaande gegevens in</h2>
+                <form>
+                    <!-- E-mail adress input -->
+                    <div class="form-group mb-3">
+                        <label for="email" class="form-label">E-mailadres</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <small id="emailHelp" class="form-text text-muted">Wij geven uw persoonlijke gegevens nooit door aan andere organisaties.</small>
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Wachtwoord</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <!-- Payment method selection -->
+                    <div class="form-group mb-3">
+                        <label for="paymentmethod" class="form-label">Betaalwijze</label>
+                        <select class="form-select" id="paymentmethod">
+                            <option>iDEAL</option>
+                            <option>PayPal</option>
+                            <option>Creditcard</option>
+                        </select>
+                    </div>
+                    <!-- Instruments selection -->
+                    <div class="form-group mb-3">
+                        <label for="instruments" class="form-label">Welke instrumenten bespeelt u?</label>
+                        <select class="form-select" name="instruments" multiple required>
+                            <option value="piano">Piano</option>
+                            <option value="saxophone">Saxofoon</option>
+                            <option value="guitar">Gitaar</option>
+                            <option value="drums">Drums</option>
+                            <option value="trumpet">Trompet</option>
+                        </select>
+                        <small id="instrumentsHelp" class="form-text text-muted">Houd Ctrl (Windows) of ⌘ (Mac) ingedrukt om meerdere opties te selecteren.</small>
+                    </div>
+                    <!-- Comments input -->
+                    <div class="form-group mb-3">
+                        <label for="comments" class="form-label">Eventuele op- of aanmerkingen</label>
+                        <textarea class="form-control" id="comments" rows="3"></textarea>
+                    </div>
+                    <h5>Radio buttons</h5>
+                    <!-- Three radio buttons -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radiobuttons" id="option1" checked>
+                        <label class="form-check-label" for="option1">Er is al een selectie gemaakt voor u - dat is een uitstekende keuze</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="radiobuttons" id="option2">
+                      <label class="form-check-label" for="option2">Wordt voor optie 2 gekozen, wordt de keuze voor optie 1 ongedaan gemaakt.</label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="radiobuttons" id="option3" disabled>
+                      <label class="form-check-label" for="terms3">Optie drie kan niet gekozen worden.</label>
+                    </div>
+                    <!-- Checkbox -->
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="terms">
+                        <label class="form-check-label" for="terms">Ik heb geen zin om de algemene voorwaarden te lezen</label>
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary mb-3">Verstuur</button>
+                </form>
+        </div>
+        <!-- Import Bootstrap JS bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>
