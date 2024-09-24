@@ -1,12 +1,22 @@
 <?php
+    declare(strict_types = 1);
+    require_once 'App.php';
+?>
 
-declare(strict_types = 1);
-
-$root = dirname(__DIR__) . DIRECTORY_SEPARATOR;
-
-define('APP_PATH', $root . 'app' . DIRECTORY_SEPARATOR);
-define('FILES_PATH', $root . 'transaction_files' . DIRECTORY_SEPARATOR);
-define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
-
-/* HIER CODE (zie de instructies op Blackboard) */
-
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <title>Transacties</title>
+    </head>
+    <body>
+        <ul>
+            <?php
+                $transactionFiles = getTransactionFiles();
+                foreach ($transactionFiles as $transactionFile) {
+                    echo "<li><a href='./views/" . "transactions.php?file=" . $transactionFile . "'>" . $transactionFile . "</a></li>";
+                    echo print_r(getTransactionFileData($transactionFile));
+                }
+            ?>
+        </ul>
+    </body>
+</html>
