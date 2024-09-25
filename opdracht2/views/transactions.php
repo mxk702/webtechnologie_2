@@ -4,7 +4,8 @@ declare(strict_types = 1);
 require_once '../App.php';
 
 $csvFileName = $_GET['file'];
-$transactions = getTransactionFileData($csvFileName);
+if (empty($_GET['file'])) $transactions = [];
+else $transactions = getTransactionFileData($csvFileName);
 
 $totalIncome = 0;
 $totalExpenses = 0;
@@ -36,9 +37,13 @@ $netTotal = 0;
                 text-align: right;
             }
         </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     </head>
-    <body>
-        <table>
+    <body class="d-flex flex-column h-100">
+    <?php printNavbar('transacties'); ?>
+        <div class="container-md mt-5">
+        <?php if (count($transactions) > 0) { ?>
+        <table class="mt-3">
             <thead>
                 <tr>
                     <th>Datum</th>
@@ -82,5 +87,21 @@ $netTotal = 0;
                 </tr>
             </tfoot>
         </table>
+        </div>
+    <?php }
+        else {
+                echo '<div class="alert alert-danger" role="alert">' .
+                    '<p>The following file could not be opened or processed:</p>' .
+                    '<p><b>' . FILES_PATH . $csvFileName . '</b></p>' .
+                    '<p>This could have one of the following reasons:</p>' .
+                    '<ul>' .
+                    '<li>The file does not exist.</li>' .
+                    '<li>The file is not a tab-delimited .csv file. A tab-delimited .csv file uses "\t" to separate values from each other.</li>' .
+                    '<li>The file is corrupted, contains unnecessary extra characters and/or contains an inconsistent amount of delimiters per row.</li>' .
+                    '</ul>' .
+                    '</div>';
+            }
+    ?>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>
