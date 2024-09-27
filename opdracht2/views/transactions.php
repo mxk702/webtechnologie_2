@@ -37,13 +37,13 @@ $netTotal = 0;
                 text-align: right;
             }
         </style>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <?php includeBootstrapAndCss(); ?>
     </head>
     <body class="d-flex flex-column h-100">
     <?php printNavbar('transacties'); ?>
-        <div class="container-md mt-5">
-        <?php if (count($transactions) > 0) { ?>
-        <table class="mt-3">
+    <?php if (count($transactions) > 0) { ?>
+            <div class="container-md">
+            <table>
             <thead>
                 <tr>
                     <th>Datum</th>
@@ -56,10 +56,10 @@ $netTotal = 0;
                 <?php
                     foreach ($transactions as $transaction) {
                         echo "<tr>";
-                        echo "<td>" . $transaction['datum'] . "</td>";
+                        echo "<td>" . formatDate($transaction['datum']) . "</td>";
                         echo "<td>" . $transaction['checksum'] . "</td>";
                         echo "<td>" . $transaction['beschrijving'] . "</td>";
-                        echo "<td>" . $transaction['bedrag'] . "</td>";
+                        echo "<td bgcolor='" . getCellColorByAmount((float) $transaction['bedrag']) . "'>" . $transaction['bedrag'] . "</td>";
                         echo "</tr>";
 
                         if ($transaction['bedrag'] > 0) {
@@ -90,18 +90,22 @@ $netTotal = 0;
         </div>
     <?php }
         else {
-                echo '<div class="alert alert-danger" role="alert">' .
-                    '<p>The following file could not be opened or processed:</p>' .
-                    '<p><b>' . FILES_PATH . $csvFileName . '</b></p>' .
-                    '<p>This could have one of the following reasons:</p>' .
-                    '<ul>' .
-                    '<li>The file does not exist.</li>' .
-                    '<li>The file is not a tab-delimited .csv file. A tab-delimited .csv file uses "\t" to separate values from each other.</li>' .
-                    '<li>The file is corrupted, contains unnecessary extra characters and/or contains an inconsistent amount of delimiters per row.</li>' .
-                    '</ul>' .
+                echo '<div class="container-md mt-3">' .
+                        '<div class="alert alert-danger" role="alert">' .
+                            '<p>Het volgende bestand kon niet worden geopend:</p>' .
+                            '<p><b>' . FILES_PATH . $csvFileName . '</b></p>' .
+                            '<p>Dit kan één van de volgende redenen hebben:</p>' .
+                            '<ul>' .
+                            '<li>Het bestand bestaat niet.</li>' .
+                            '<li>De waarden in het .csv-bestand zijn niet gescheiden door middel van tabs ("\t").</li>' .
+                            '<li>Het bestand is corrupt, bevat onnodige extra karakters zoals " of bevat een inconsistent aantal delimiters ("\t") per regel.</li>' .
+                            '</ul>' .
+                        '</div>' .
                     '</div>';
             }
     ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <?php includeJs(); ?>
     </body>
+    <!-- Footer afdrukken -->
+    <?php printFooter(); ?>
 </html>
