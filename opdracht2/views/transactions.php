@@ -42,7 +42,7 @@ $netTotal = 0;
     <body class="d-flex flex-column h-100">
     <?php printNavbar('transacties'); ?>
     <?php if (count($transactions) > 0) { ?>
-            <div class="container-md">
+            <div class="container-md mt-3">
             <table>
             <thead>
                 <tr>
