@@ -1,17 +1,20 @@
 <?php
+
 class shares extends Dbh
 {
-    protected function createShare($title, $body, $link, $user_id) {
+    protected function createShare($title, $body, $link, $user_id)
+    {
         // SQL-statement maken en uitvoeren
         $sql = "INSERT INTO shares (title, body, link, user_id) VALUES (?, ?, ?, ?)";
         $stmt = $this->connect()->prepare($sql);
-        if(!$stmt->execute([$title, $body, $link, $user_id])) {
+        if (!$stmt->execute([$title, $body, $link, $user_id])) {
             return false; // Share niet succesvol aangemaakt
         }
         return true; // Share is aangemaakt
     }
 
-    protected function getAllShares() {
+    protected function getAllShares()
+    {
         // SQL-statement maken en uitvoeren
         $sql = "SELECT * FROM shares";
         $stmt = $this->connect()->prepare($sql);
@@ -19,7 +22,8 @@ class shares extends Dbh
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    protected function getShare($id) {
+    protected function getShare($id)
+    {
         // SQL-statement maken en uitvoeren
         $sql = "SELECT * FROM shares WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);
@@ -27,21 +31,23 @@ class shares extends Dbh
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    protected function updateShare($id, $title, $body, $link) {
+    protected function updateShare($id, $title, $body, $link)
+    {
         // SQL-statement maken en uitvoeren
         $sql = "UPDATE shares SET title = ?, body = ?, link = ? WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);
-        if(!$stmt->execute([$title, $body, $link, $id])) {
+        if (!$stmt->execute([$title, $body, $link, $id])) {
             return false; // Share niet geüpdatet
         }
         return true; // Share geüpdatet
     }
 
-    protected function deleteShare($id) {
+    protected function deleteShare($id)
+    {
         // SQL-statement maken en uitvoeren
         $sql = "DELETE FROM shares WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);
-        if(!$stmt->execute([$id])) {
+        if (!$stmt->execute([$id])) {
             return false; // Share niet verwijderd
         }
         return true; // Share verwijderd

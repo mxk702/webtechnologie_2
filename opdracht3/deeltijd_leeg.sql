@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 08 okt 2024 om 21:42
+-- Gegenereerd op: 10 okt 2024 om 16:48
 -- Serverversie: 10.4.32-MariaDB
 -- PHP-versie: 8.2.12
 
@@ -58,7 +58,8 @@ CREATE TABLE `users` (
 -- Indexen voor tabel `shares`
 --
 ALTER TABLE `shares`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `shares.user_id <> users.id` (`user_id`);
 
 --
 -- Indexen voor tabel `users`
@@ -74,13 +75,23 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `shares`
 --
 ALTER TABLE `shares`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Beperkingen voor geëxporteerde tabellen
+--
+
+--
+-- Beperkingen voor tabel `shares`
+--
+ALTER TABLE `shares`
+  ADD CONSTRAINT `shares.user_id <> users.id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
