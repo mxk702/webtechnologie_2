@@ -44,6 +44,13 @@ class shares extends Dbh
 
     protected function deleteShare($id)
     {
+        $share = $this->getShare($id);
+        $userController = new UsersContr();
+        $loggedIn = $userController->checkUserLoggedIn();
+        if(!$share || !$loggedIn || $_SESSION['userid'] != $share['user_id'])
+        {
+            return false;
+        }
         // SQL-statement maken en uitvoeren
         $sql = "DELETE FROM shares WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);

@@ -1,4 +1,9 @@
 <?php
+$userController = new UsersContr();
+if ($userController->checkUserLoggedIn()) {
+    header("Location: /home"); // Als al ingelogd --> Naar home sturen
+    exit();
+}
 
 // Als methode POST is, dan hebben we een formulier (registratie) te verwerken
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -7,11 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Registreren
-    $userController = new UsersContr();
-    $userController->createUser($username, $password, $email);
-
-    // Naar loginpagina sturen
-    header("Location: ?page=login");
+    if($userController->createUser($username, $password, $email)) {
+        // Succesvolle registratie dus doorsturen naar loginpagina
+        header("Location: /login");
+    }
+    else {
+        // Geen succesvolle registratie dus registratie-pagina tonen met error
+        header("Location: /register");
+    }
     exit();
 }
 ?>
@@ -20,11 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register User</title>
+    <title>ShareBoard - Registration</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <?php include 'navbar.view.php'; ?>
+<?php include 'registrationalert.view.php'; ?>
 <div class="container mt-5">
     <h2>Register User</h2>
     <form method="POST" action="">

@@ -1,8 +1,7 @@
 <?php
-session_unset();
-session_destroy();
-
-// Naar homepage sturen
-header("Location: ?page=home");
-exit();
+    $userController = new UsersContr();
+    $userController->signOutUser();
+    // Naar loginpagina sturen
+    header("Location: /login");
+    exit();
 ?>

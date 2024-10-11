@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_SESSION['userid'])) {
-    header("Location: ?page=login"); // Als niet ingelogd --> Naar loginpagina sturen
+    header("Location: /login"); // Als niet ingelogd --> Naar loginpagina sturen
     exit();
 }
 
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sharesController = new SharesContr();
     $sharesController->createNewShare($title, $body, $link, $userId);
-    header("Location: ?page=shares");
+    header("Location: /shares");
     exit();
 }
 ?>
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="url" name="link" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="?page=shares" class="btn btn-secondary">Cancel</a>
+        <a href="./shares" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 </body>

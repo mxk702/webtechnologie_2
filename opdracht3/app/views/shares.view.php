@@ -3,6 +3,8 @@
 $sharesController = new SharesContr();
 $sharesView = new SharesView();
 $allShares = $sharesController->fetchAllShares();
+$userController = new UsersContr();
+$loggedIn = $userController->checkUserLoggedIn();
 
 ?>
 <!DOCTYPE html>
@@ -18,8 +20,8 @@ $allShares = $sharesController->fetchAllShares();
 
 <div class="container mt-4">
     <h2 class="mb-4">All Shares</h2>
-    <?php if (isset($_SESSION['userid'])): ?>
-        <a href="?page=create" class="btn btn-success mb-4">Share Something</a>
+    <?php if ($loggedIn): ?>
+        <a href="/create" class="btn btn-success mb-4">Share Something</a>
     <?php endif; ?>
 
     <?php if (!empty($allShares)): ?>

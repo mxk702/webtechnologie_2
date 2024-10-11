@@ -11,4 +11,18 @@ class UsersContr extends Users
     {
         return $this->loginUser($email, $password);
     }
+
+    public function signOutUser()
+    {
+        $this->logoutUser();
+    }
+
+    public function checkUserLoggedIn()
+    {
+        return $this->isUserLoggedIn();
+    }
+
+    public function removeUser() {
+        return $this->deleteUser();
+    }
 }
