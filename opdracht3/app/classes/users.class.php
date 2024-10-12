@@ -82,5 +82,15 @@ class Users extends Dbh
           return true;
     }
 
+    protected function getUsername($userid)
+    {
+        $sql = "SELECT * FROM users WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$userid]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($user) return $user['name'];
+        else return "Unknown user";
+    }
+
 }
 

@@ -25,4 +25,8 @@ class UsersContr extends Users
     public function removeUser() {
         return $this->deleteUser();
     }
+
+    public function checkUsername($userId) {
+        return $this->getUsername($userId);
+    }
 }

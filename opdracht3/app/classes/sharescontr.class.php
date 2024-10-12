@@ -20,15 +20,15 @@ class SharesContr extends Shares
         return $this->getShare($id);
     }
 
-    // Functie om een share te updaten
-    public function modifyShare($id, $title, $body, $link)
-    {
-        return $this->updateShare($id, $title, $body, $link);
-    }
-
     // Functie om een share te verwijderen
     public function removeShare($id)
     {
         return $this->deleteShare($id);
+    }
+
+    // Verwerken van verzoeken om shares te wijzigen
+    public function handleShareUpdate($shareId, $data = null)
+    {
+        return $this->processShareUpdate($shareId, $data);
     }
 }
