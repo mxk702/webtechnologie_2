@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect query strings like ?page=login to /login
+RewriteCond %{QUERY_STRING} ^page=([^&]+)$
+RewriteRule ^$ /%1/ [L]
+
+# Internally handle requests to /some-page by mapping to index.php?page=some-page
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php?page=$1 [L,QSA]

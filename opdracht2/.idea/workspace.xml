@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85be65f3-ba14-46a8-b3f8-8d14ca61a77b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/transactions.php" afterDir="false" />
-    </list>
+    <list default="true" id="85be65f3-ba14-46a8-b3f8-8d14ca61a77b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,8 +48,8 @@
   "keyToString": {
     "PHP Script.transactions.php.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "opdracht2",
-    "last_opened_file_path": "C:/Users/MaxKranen/Documents/GitHub/webtechnologie_2/opdracht2",
+    "git-widget-placeholder": "opdracht3",
+    "last_opened_file_path": "C:/Users/MaxKranen/Documents/GitHub/webtechnologie_2/opdracht3",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -89,6 +86,7 @@
       <workItem from="1727206812527" duration="567000" />
       <workItem from="1727283577602" duration="6639000" />
       <workItem from="1727454836108" duration="6310000" />
+      <workItem from="1728415938751" duration="18000" />
     </task>
     <servers />
   </component>
